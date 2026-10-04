@@ -34,5 +34,10 @@ void OnMouseUpEvent(const SDL_MouseButtonEvent& e);
 #pragma endregion inputHandling
 
 #pragma region myFunctionDeclarations
+void DrawLogo();
+void DrawLogoCircle();
+void DrawLogoEyes();
+void DrawLogoMouth();
+void DrawLogoText();
 
 #pragma endregion

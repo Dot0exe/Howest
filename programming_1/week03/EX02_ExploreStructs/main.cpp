@@ -52,8 +52,8 @@ void BestSoldGames()
 	GameSales secondBest{"Grand Theft Auto V", 185000000, "Grand Theft Auto"};
 	GameSales thirdBest{"Tetris(EA)", 100000000, "Tetris"};
 
-	std::cout << "#1 best selling game: " << bestSelling.title << " " << bestSelling.series << " with " << bestSelling.sales << " sales.\n";
-	std::cout << "#2 best selling game: " << secondBest.title << " " << secondBest.series << " with " << secondBest.sales << " sales.\n";
-	std::cout << "#3 best selling game: " << thirdBest.title << " " << thirdBest.series << " with " << thirdBest.sales << " sales.\n";
+	std::cout << "#1 best selling game: " << bestSelling.title << " (" << bestSelling.series << ") with " << bestSelling.sales << " sales.\n";
+	std::cout << "Second best: " << secondBest.title << "  (" << secondBest.sales << " sales)\n";
+	std::cout << "Third place: " << thirdBest.title << " (" << thirdBest.sales << " sales)\n";
 
 }

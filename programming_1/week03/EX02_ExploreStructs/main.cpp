@@ -44,7 +44,7 @@ void BestSoldGames()
 	struct GameSales
 	{
 		const std::string title;
-		int sales;
+		const int sales;
 		const std::string series;
 	};
 

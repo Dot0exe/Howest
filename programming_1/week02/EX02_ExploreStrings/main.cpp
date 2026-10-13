@@ -1,3 +1,5 @@
+// Sayit, Ali - DAE13
+
 #include <iostream> // enables the usage of std::cout and std::cin
 #include <string>
 
@@ -74,9 +76,11 @@ void CombiningIntNString()
 	std::cin >> num2Input;
 
 	std::string numStringTotal{ "\"" + num1Input + "\" + \"" + num2Input + "\" = " + num1Input + num2Input};
-	std::cout << numStringTotal;
+	std::cout << numStringTotal<< " \n";
 
-	float numSum{ std::stoi(num1Input) + num2Input};
+	float numSum{ std::stoi(num1Input) + std::stof(num2Input)};
+
+	std::cout << std::stoi(num1Input)<<" + " << std::stof(num2Input)<<" = " << numSum;
 	
 	
 

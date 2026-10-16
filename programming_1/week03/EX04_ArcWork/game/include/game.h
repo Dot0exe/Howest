@@ -35,4 +35,6 @@ void OnMouseUpEvent(const SDL_MouseButtonEvent& e);
 
 #pragma region myFunctionDeclarations
 
+void CircleThingyDrawer();
+
 #pragma endregion

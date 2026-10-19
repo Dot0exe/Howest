@@ -1,6 +1,7 @@
 // Sayit, Ali - DAE13
 
 #include "game.h"
+#include <iostream>
 
 using namespace utils;
 
@@ -9,17 +10,24 @@ using namespace utils;
 // Load textures and initialize other resources here.
 void Start()
 {
+
 }
 
 // Draw your game objects here.
 void Draw()
 {
 	ClearBackground(); // Clear the background with a default color
+	TimerAnimation timerAnimation
+	{
+		timerAnimation.currentAngle
+	};
+
 }
 
 // Handle gameplay, movement and collisions here.
 void Update(float elapsedSec)
 {
+	
 }
 
 // Delete textures and free other resources here.

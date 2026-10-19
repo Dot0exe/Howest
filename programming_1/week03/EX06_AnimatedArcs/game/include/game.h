@@ -4,7 +4,7 @@
 
 #pragma region gameInformation
 
-std::string g_WindowTitle{ "DAE13 Sayit Ali - Light Saber" };
+std::string g_WindowTitle{ "DAE13 Sayit Ali - Project name" };
 float g_WindowWidth{ 800.f };
 float g_WindowHeight{ 600.f };
 
@@ -12,18 +12,21 @@ float g_WindowHeight{ 600.f };
 
 #pragma region myStructs
 
-struct LightSaber
+struct TimerAnimation
 {
-	Color4f color{};
-	Color4f handleColor{};
-	Color4f handleColorOutlineColor{};
-	float startingPoint{};
-
+	float startingAngle{};
+	float currentAngle{};
+	Point2f clockRadius{};
+	Point2f timerRadius{};
+	Color4f clockColor{};
+	Color4f timerColor{};
 };
 
 #pragma endregion
 
 #pragma region myVariables
+
+
 
 #pragma endregion
 

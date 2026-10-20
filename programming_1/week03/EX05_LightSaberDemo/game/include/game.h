@@ -4,7 +4,7 @@
 
 #pragma region gameInformation
 
-std::string g_WindowTitle{ "DAExx LastName FirstName - Project name" };
+std::string g_WindowTitle{ "DAE13 Sayit Ali - Lightsaber Demo" };
 float g_WindowWidth{ 800.f };
 float g_WindowHeight{ 600.f };
 

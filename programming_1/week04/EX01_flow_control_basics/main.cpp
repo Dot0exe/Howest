@@ -8,6 +8,7 @@ void calculateDayNumber();
 void checkForLeapYear();
 void calculateSeconds();
 void scopedEnumerations();
+void defineAndUsePoint2f();
 
 
 int main()
@@ -19,7 +20,8 @@ int main()
 	//calculateDayNumber();
 	//checkForLeapYear();
 	//calculateSeconds();
-	scopedEnumerations();
+	//scopedEnumerations();
+	defineAndUsePoint2f();
 
 	return 0;
 }
@@ -141,6 +143,31 @@ void calculateDayNumber()
 
 	}
 	std::cout << dayMessage << "\n";
+
+	switch (dayNumber)
+	{
+	case 1:
+			std::cout << "Monday\n";
+			break;
+	case 2:
+		std::cout << "Tuesday\n";
+		break;
+	case 3:
+		std::cout << "Wednesday\n";
+		break;
+	case 4:
+		std::cout << "Thursday\n";
+		break;
+	case 5:
+		std::cout << "Friday\n";
+		break;
+	case 6:
+		std::cout << "Saturday\n";
+		break;
+	case 7:
+		std::cout << "Sunday\n";
+		break;
+	}
 }
 
 void checkForLeapYear()
@@ -207,4 +234,25 @@ void scopedEnumerations()
 		break;
 	}
 	
+}
+
+void defineAndUsePoint2f()
+{
+	struct Point2f
+	{
+		float x;
+		float y;
+	};
+
+	Point2f withoutInitializaiton;
+	Point2f withInitializaiton{};
+	Point2f withIntInitializaiton{25,26};
+
+	//std::cout << withoutInitializaiton.x << " " << withInitializaiton.y;
+	std::cout << withInitializaiton.x << " " << withInitializaiton.y << "\n";
+	std::cout << withIntInitializaiton.x << " " << withIntInitializaiton.y << "\n";
+
+	withoutInitializaiton.x = 20;
+	withoutInitializaiton.y = 3;
+
 }

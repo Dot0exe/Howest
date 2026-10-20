@@ -247,12 +247,25 @@ void defineAndUsePoint2f()
 	Point2f withoutInitializaiton;
 	Point2f withInitializaiton{};
 	Point2f withIntInitializaiton{25,26};
-
-	//std::cout << withoutInitializaiton.x << " " << withInitializaiton.y;
-	std::cout << withInitializaiton.x << " " << withInitializaiton.y << "\n";
-	std::cout << withIntInitializaiton.x << " " << withIntInitializaiton.y << "\n";
+	
+	std::cout << "-- Define and use Point2f --\n";
+	std::cout << "Values after definiton\n";
+	//	std::cout << "p1: [" << withoutInitializaiton.x << ", " << withoutInitializaiton.y << "]\n";
+	std::cout << "p2: [" << withInitializaiton.x << ", " << withInitializaiton.y << "]\n";
+	std::cout << "p3: [" << withIntInitializaiton.x << ", " << withIntInitializaiton.y << "]\n\n";
 
 	withoutInitializaiton.x = 20;
 	withoutInitializaiton.y = 3;
+
+	withInitializaiton.x = 30;
+	withInitializaiton.y = 40;
+
+	withIntInitializaiton.x++;
+	withIntInitializaiton.y--;
+
+	std::cout << "Values after changing members\n";
+	std::cout << "p1: [" << withoutInitializaiton.x << ", " << withoutInitializaiton.y << "]\n";
+	std::cout << "p2: [" <<withInitializaiton.x << ", " << withInitializaiton.y << "]\n";
+	std::cout << "p3: [" << withIntInitializaiton.x << ", " << withIntInitializaiton.y << "]\n\n";
 
 }

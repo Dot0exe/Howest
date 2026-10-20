@@ -21,8 +21,6 @@ int main()
 	//calculateSeconds();
 	scopedEnumerations();
 
-
-
 	return 0;
 }
 
@@ -92,11 +90,11 @@ void calculatePrice()
 	{
 		price = 4.f;
 	}
-	else if (inputNumber > 19 && inputNumber < 50)
+	else if (inputNumber < 50)
 	{
 		price = 3.5f;
 	}
-	else if (inputNumber > 49 && inputNumber < 101)
+	else if (inputNumber < 101)
 	{
 		price = 3.25f;
 	}
@@ -185,5 +183,28 @@ void calculateSeconds()
 
 void scopedEnumerations()
 {
+	enum class ActorState
+	{
+		running,
+		fyling,
+		falling
+	};
 
+	int randNum{ rand() % 3 };
+
+	ActorState actor1{randNum};
+
+	switch (static_cast<int>(actor1))
+	{
+	case 0:
+		std::cout << "running";
+		break;
+	case 1:
+		std::cout << "fyling";
+		break;
+	case 2:
+		std::cout << "falling";
+		break;
+	}
+	
 }

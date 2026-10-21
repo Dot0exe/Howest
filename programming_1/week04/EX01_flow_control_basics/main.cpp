@@ -19,9 +19,9 @@ int main()
 	//calculatePrice();
 	//calculateDayNumber();
 	//checkForLeapYear();
-	//calculateSeconds();
+	calculateSeconds();
 	//scopedEnumerations();
-	defineAndUsePoint2f();
+	//defineAndUsePoint2f();
 
 	return 0;
 }
@@ -206,7 +206,39 @@ void checkForLeapYear()
 }
 
 void calculateSeconds()
-{ } // complete this
+{ 
+	std::cout << "-- Convert Seconds --\n";
+	std::cout << "Number of seconds? ";
+	int secondsInput{};
+	std::cin >> secondsInput;
+	
+	const int daysInSeconds{ 86400 };
+	const int hoursInSeconds{ 3600 };
+	const int minutesInSeconds{ 60 };
+
+
+	int calculatedNumber{secondsInput};
+	int days{};
+	int hours{};
+	int minutes{};
+	int seconds{};
+	
+	days = calculatedNumber / daysInSeconds;
+	calculatedNumber %= daysInSeconds;
+
+	hours = calculatedNumber / hoursInSeconds;
+	calculatedNumber %= hoursInSeconds;
+
+	minutes = calculatedNumber / minutesInSeconds;
+	calculatedNumber %= minutesInSeconds;
+
+	seconds = calculatedNumber;
+
+	std::cout << days << " days\n";
+	std::cout << hours << " hours\n";
+	std::cout << minutes << " minutes\n";
+	std::cout << seconds << " seconds\n";
+} 
 
 void scopedEnumerations()
 {

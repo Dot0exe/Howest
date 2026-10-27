@@ -69,6 +69,9 @@ void OnMouseMotionEvent(const SDL_MouseMotionEvent& e)
 // Called once when a mouse button is pressed.
 void OnMouseDownEvent(const SDL_MouseButtonEvent& e)
 {
+	FirstBarColorControl(e.x, e.y);
+	SecondBarColorControl(e.x, e.y);
+	ThirdBarColorControl(e.x, e.y);
 }
 
 // Called once when a mouse button is released.
@@ -79,6 +82,8 @@ void OnMouseUpEvent(const SDL_MouseButtonEvent& e)
 #pragma endregion inputHandling
 
 #pragma region myFunctionDefinitions
+
+// first bar
 
 void FirstBarStart()
 {
@@ -113,6 +118,23 @@ void FirstBarUpdate()
 	}
 }
 
+void FirstBarColorControl(float x, float y)
+{
+	const bool isInsideX{ x > g_FirstBar.rect.left && x < g_FirstBar.rect.left + g_FirstBar.maxSize };
+	const bool isInsideY{ y > g_FirstBar.rect.top && y < g_FirstBar.rect.top + g_FirstBar.rect.height };
+
+	float colorMax{ 100.f };
+	int colorSteps{ 101 };
+
+	if (isInsideX && isInsideY)
+	{
+		g_FirstBar.barColor.g = ((rand() % colorSteps) / colorMax);
+		g_FirstBar.barColor.b = ((rand() % colorSteps) / colorMax);
+		g_FirstBar.barColor.r = ((rand() % colorSteps) / colorMax);
+	}
+}
+
+// second bar
 
 void SecondBarStart()
 {
@@ -144,6 +166,25 @@ void SecondBarUpdate()
 		g_SecondBar.rect.width = 0.f;
 	}
 }
+
+void SecondBarColorControl(float x, float y)
+{
+	const bool isInsideX{ x > g_SecondBar.rect.left && x < g_SecondBar.rect.left + g_SecondBar.maxSize };
+	const bool isInsideY{ y > g_SecondBar.rect.top && y < g_SecondBar.rect.top + g_SecondBar.rect.height };
+
+
+	float colorMax{ 100.f };
+	int colorSteps{ 101 };
+
+	if (isInsideX && isInsideY)
+	{
+		g_SecondBar.barColor.g = ((rand() % colorSteps) / colorMax);
+		g_SecondBar.barColor.b = ((rand() % colorSteps) / colorMax);
+		g_SecondBar.barColor.r = ((rand() % colorSteps) / colorMax);
+	}
+}
+
+// third bar
 
 void ThirdBarStart()
 {
@@ -183,15 +224,20 @@ void ThirdBarUpdate()
 	}
 }
 
-void ThirdBarColorControl()
+void ThirdBarColorControl(float x, float y)
 {
-	const bool isInsideX{ e.x > g_randomRect.rect.left && e.x < g_randomRect.rect.left + g_randomRect.rect.width };
-	const bool isInsideY{ e.y > g_randomRect.rect.top && e.y < g_randomRect.rect.top + g_randomRect.rect.height };
-	const bool isInsideCopyX{ e.x + g_WindowWidth > g_randomRect.rect.left && e.x + g_WindowWidth < right };
+	const bool isInsideX{ x > g_ThirdBar.rect.left && x < g_ThirdBar.rect.left + g_ThirdBar.maxSize };
+	const bool isInsideY{ y > g_ThirdBar.rect.top && y < g_ThirdBar.rect.top + g_ThirdBar.rect.height };
 
 
-	if ((isInsideX && isInsideY) || (isInsideCopyX && isInsideY))
+	float colorMax{ 100.f };
+	int colorSteps{ 101 };
+	
+	if (isInsideX && isInsideY)
 	{
+		g_ThirdBar.barColor.g = ((rand() % colorSteps) / colorMax);
+		g_ThirdBar.barColor.b = ((rand() % colorSteps) / colorMax);
+		g_ThirdBar.barColor.r = ((rand() % colorSteps) / colorMax);
 	}
 }
 

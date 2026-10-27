@@ -22,6 +22,7 @@ struct LoadingBar
 	Color4f barColor;
 	float left;
 	float top;
+	bool isClicked;
 };
 
 #pragma endregion
@@ -56,14 +57,17 @@ void OnMouseUpEvent(const SDL_MouseButtonEvent& e);
 void FirstBarStart();
 void FirstBarDraw();
 void FirstBarUpdate();
+void FirstBarColorControl(float x, float y);
 
 
 void SecondBarStart();
 void SecondBarDraw();
 void SecondBarUpdate();
+void SecondBarColorControl(float x, float y);
 
 void ThirdBarStart();
 void ThirdBarDraw();
 void ThirdBarUpdate();
+void ThirdBarColorControl(float x, float y);
 void FrameCounter();
 #pragma endregion

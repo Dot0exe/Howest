@@ -15,10 +15,10 @@ void AsciiTable();
 int main()
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
-	//EvenNumber();
-	//MovieRatings();
-	//GuessCounter();
-	//TrigonametryTable();
+	EvenNumber();
+	MovieRatings();
+	GuessCounter();
+	TrigonametryTable();
 	AsciiTable();
 	return 0;
 }
@@ -156,6 +156,5 @@ void AsciiTable()
 		std::cout << startOne << std::setw(10) << charInInt << std::setw(5);
 		charInInt = startTwo;
 		std::cout << startTwo << std::setw(10) << charInInt << "\n";
-
 	}
 }

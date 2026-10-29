@@ -17,6 +17,19 @@ set(CMAKE_CXX_STANDARD 17)              # Request C++17
 set(CMAKE_CXX_STANDARD_REQUIRED ON)     # Make C++17 Manditory instead of preferred
 set(CMAKE_CXX_EXTENSIONS OFF)           # Don't allow compiler specific extensions (aka use the standard and nothing else)
 
-add_executable(${EXECUTABLE_NAME} main.cpp)
+# Collect all .h and .cpp files at root level (not recursive)
+file(GLOB SOURCE_FILES CONFIGURE_DEPENDS
+    "${CMAKE_SOURCE_DIR}/*.cpp"
+    "${CMAKE_SOURCE_DIR}/*.h"
+)
+
+add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
+
+# Group files in the IDE (Visual Studio / Rider) in a clean way
+source_group("Source Files" FILES ${SOURCE_FILES})
 
 target_compile_options(${EXECUTABLE_NAME} PRIVATE $<$<CXX_COMPILER_ID:MSVC>:/permissive->)
+target_compile_options(${EXECUTABLE_NAME} PRIVATE
+    $<$<CXX_COMPILER_ID:MSVC>:/permissive- /W4>
+    $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wconversion>
+)

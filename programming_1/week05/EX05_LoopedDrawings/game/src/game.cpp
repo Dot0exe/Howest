@@ -9,13 +9,18 @@ using namespace utils;
 // Load textures and initialize other resources here.
 void Start()
 {
+	g_Steps = 5;
 }
 
 // Draw your game objects here.
 void Draw()
 {
 	ClearBackground(0,0,0); // Clear the background with a default color
-	//StairsDraw();
+	StairsDraw();
+	MultipleRects();
+	RotatingRects();
+
+
 }
 
 // Handle gameplay, movement and collisions here.
@@ -63,15 +68,13 @@ void OnMouseUpEvent(const SDL_MouseButtonEvent& e)
 
 void StairsDraw()
 {
-	const float padding{ 50.f };
-	const float centerX{ (g_WindowWidth - padding)  / 2 };
-	const float centerY{ (g_WindowHeight - padding) / 2 };
+	const float centerX{ (g_WindowWidth - g_Padding)  / 2 };
+	const float centerY{ (g_WindowHeight - g_Padding) / 2 };
 
-	const int steps{ 5 };
-	const float xLength{ (centerX - (padding / 2)) / steps };
-	const float yLength{ (centerY - (padding / 2)) / steps };
+	const float xLength{ (centerX - (g_Padding / 2)) / g_Steps };
+	const float yLength{ (centerY - (g_Padding / 2)) / g_Steps };
 
-	float posX1{ padding / 2 };
+	float posX1{ g_Padding / 2 };
 	float posY1{ centerY };
 
 	float posX2{ };
@@ -80,7 +83,7 @@ void StairsDraw()
 	bool isBlue{ true };
 
 
-	for (int i{}; i < steps; i++)
+	for (int i{}; i < g_Steps; i++)
 	{
 		if (isBlue)
 		{
@@ -102,5 +105,29 @@ void StairsDraw()
 		isBlue = !isBlue;
 	}
 
+}
+
+void MultipleRects()
+{
+	SetColor(lightGreen);
+
+	const float centerX{ g_WindowWidth / 4 };
+	const float centerY{ (g_WindowHeight * 3.f) / 4.f };
+
+
+	const float length{ ((g_WindowWidth / 2) - g_Padding) / g_Steps };
+
+	float rectSize{ length };
+	float rectPosX{ centerX - rectSize / 2 };
+	float rectPosY{ centerY - rectSize / 2 };
+
+	for (int i{}; i < g_Steps; i++)
+	{
+		DrawRect(rectPosX, rectPosY,rectSize,rectSize);
+
+		rectSize += length;
+		rectPosX -= length / 2;
+		rectPosY -= length / 2;
+	}
 }
 #pragma endregion

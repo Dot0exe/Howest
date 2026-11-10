@@ -16,6 +16,8 @@ float g_WindowHeight{ 800.f };
 
 #pragma region myVariables
 
+int g_Steps{};
+const float g_Padding{ 50 };
 const Color4f skyBlue{ 0.70f, 0.80f, 1.00f, 1.f };
 const Color4f salmon{ 1.00f, 0.65f, 0.65f, 1.f };
 const Color4f lightGreen{ 0.70f, 0.92f, 0.65f, 1.f };
@@ -41,5 +43,7 @@ void OnMouseUpEvent(const SDL_MouseButtonEvent& e);
 #pragma region myFunctionDeclarations
 
 void StairsDraw();
+void MultipleRects();
+void RotatingRects();
 
 #pragma endregion

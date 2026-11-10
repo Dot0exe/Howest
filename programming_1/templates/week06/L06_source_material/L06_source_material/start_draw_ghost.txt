@@ -1,0 +1,42 @@
+void DrawGhost()
+{
+	const float left{ 10.f };
+	const float top{ 20.f };
+	const float size{ 100.f };
+	const float radius{ size * 0.5f };       
+	const float centerX{ left + radius };       
+	const float centerY{ top + radius };       
+
+	if (!g_IsFlashOn || GetDistance(centerX, centerY, g_MousePos.x, g_MousePos.y) > radius)
+	{
+		return;
+	}
+
+	const float bodyH{ size * 0.3f };    
+	const int numSkirtCircles{ 3 };
+	const float skirtCircleRad{ size / numSkirtCircles * 0.5f };   
+
+	SetColor(1.f, 1.f, 1.f, 0.3f);
+
+	FillArc(centerX, top + radius, radius, radius, g_Pi, g_Pi * 2);
+	FillRect(left, centerY, size, bodyH);
+
+	// Skirt
+	for (int i = 0; i < numSkirtCircles; ++i)
+	{
+		const float x{ left + i * (skirtCircleRad * 2) + skirtCircleRad };
+		FillArc(x, centerY + bodyH , skirtCircleRad, skirtCircleRad, 0, g_Pi);
+	}
+
+	const float eyeRadX{ skirtCircleRad * 0.5f };
+	const float eyeRadY{ eyeRadX * 1.1f };
+	const float eyeOffsetX{ eyeRadX * 1.3f };
+	const float eyeOffsetY{ eyeRadY * 1.5f};
+	const float mouthRadius{ eyeRadX * 1.5f };
+
+	// Face
+	SetColor(0.f, 0.f, 0.f);
+	FillArc(centerX - eyeOffsetX, centerY - eyeOffsetY, eyeRadX, eyeRadY, 0, g_Pi );
+	FillArc(centerX + eyeOffsetX, centerY - eyeOffsetY, eyeRadX, eyeRadY, 0, g_Pi);
+	FillArc(centerX, centerY + eyeOffsetY, mouthRadius, mouthRadius, g_Pi, g_Pi * 2);
+}

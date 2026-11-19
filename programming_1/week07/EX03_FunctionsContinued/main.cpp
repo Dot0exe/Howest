@@ -4,6 +4,9 @@
 #include "structs.h"
 #include <cmath>
 
+enum class DesaturationMode;
+DesaturationMode desaturationMode{};
+
 int Clamp(int rangeMin,int rangeMax, int value);
 float Clamp(float rangeMin, float rangeMax, float value = 2);
 int RndValueGen(int min, int max);
@@ -16,16 +19,12 @@ float GetDistance(float x1, float y1, float x2, float y2);
 float GetDistance(Point2f posFirst, Point2f posSecond);
 Point2f GetRndPos2f(float x, float y, float width, float height);
 Point2f GetRndPos2f(float width, float height);
+Color4f ColorToGray(Color4f color,)
 
 
 int main()
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
-	Color4f color{RndColorGen()};
-	std::cout << color.a << "\n";
-	std::cout << color.r << "\n";
-	std::cout << color.g << "\n";
-	std::cout << color.b << "\n";
 
 	return 0;
 }
@@ -131,7 +130,7 @@ float GetDistance(float x1,float y1,float x2,float y2)
 }
 float GetDistance(Point2f posFirst, Point2f posSecond)
 {
-	GetDistance(posFirst.x, posFirst.y, posSecond.x, posSecond.y);
+	return GetDistance(posFirst.x, posFirst.y, posSecond.x, posSecond.y);
 }
 
 Point2f GetRndPos2f(float x,float y, float width, float height)
@@ -145,9 +144,9 @@ Point2f GetRndPos2f(float width, float height)
 {
 	float posX{ 0 };
 	float posY{ 0 };
-	GetRndPos2f(posX, posY, width, height);
+	return GetRndPos2f(posX, posY, width, height);;
 }
 Point2f GetRndPos2f(Rectf rectf)
 {
-	GetRndPos2f(rectf.left, rectf.top, rectf.width, rectf.height);
+	return GetRndPos2f(rectf.left, rectf.top, rectf.width, rectf.height);
 }

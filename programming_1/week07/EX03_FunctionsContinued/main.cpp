@@ -4,8 +4,7 @@
 #include "structs.h"
 #include <cmath>
 
-enum class DesaturationMode;
-DesaturationMode desaturationMode{};
+enum class DesaturationMode { Lightness, Luminosity, Average };
 
 int Clamp(int rangeMin,int rangeMax, int value);
 float Clamp(float rangeMin, float rangeMax, float value = 2);
@@ -19,7 +18,7 @@ float GetDistance(float x1, float y1, float x2, float y2);
 float GetDistance(Point2f posFirst, Point2f posSecond);
 Point2f GetRndPos2f(float x, float y, float width, float height);
 Point2f GetRndPos2f(float width, float height);
-Color4f ColorToGray(Color4f color,)
+Color4f ColorToGray(Color4f color, DesaturationMode desaturationMode = DesaturationMode::Luminosity);
 
 
 int main()

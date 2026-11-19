@@ -1,3 +1,5 @@
+// DAE13E Sayit Ali
+
 #include <iostream> // enables the usage of std::cout and std::cin
 #include <algorithm>
 #include <time.h>
@@ -10,7 +12,7 @@ bool TryHeal(int& health, int maxHealth);
 void HealOnce();
 void HealLoop();
 
-void GoDeeper(Fish fish, int depth = 0);
+void GoDeeper(BigFish fish, int depth = 0);
 
 int g_Depth{};
 
@@ -19,13 +21,13 @@ int main()
 	std::srand(static_cast<unsigned int>(time(nullptr)));
 
 	// TODO STEP 0: How big is the fish?
-	//PrintFishSize();
+	PrintFishSize();
 
 	// TODO STEP 1: How deep can you go?
 	//std::cout << "\nHow deep can you go? Press ENTER to start!" ;
 	//std::cin.get();
 
-	//Fish fish{};
+	//BigFish fish{};
 	//GoDeeper(fish);
 
 	// TODO STEP 2: Try heal 
@@ -50,7 +52,7 @@ void PrintFishSize()
 	std::cout << "Size of a BigFish & \t: " << sizeof(&bigFish) << " bytes.\n";
 }
 
-void GoDeeper(Fish fish, int depth)       
+void GoDeeper(BigFish fish, int depth )
 {
 	--depth;
 	std::cout << depth << " m" << std::endl;  // endl on purpose: flushes before the crash

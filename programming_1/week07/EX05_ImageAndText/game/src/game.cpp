@@ -104,18 +104,32 @@ void OnMouseUpEvent(const SDL_MouseButtonEvent& e)
 
 void DrawCrewMate(const utils::Texture& texture, const Point2f& position)
 {
+	/*
 	const Point2f centerOfSet{ texture.width / 2, texture.height / 2 };
 	const Point2f finalPosition{ position.x - centerOfSet.x, position.y - centerOfSet.y };
 
 	DrawTexture(texture, finalPosition);
+	*/
+	DrawCrewMate(
+		texture,
+		Rectf{ position.x,position.y, texture.width,texture.height },
+		Rectf{ 0,0,texture.width,texture.height }
+	);
 }
 
 void DrawCrewMate(const utils::Texture& texture, const Point2f& position, const Rectf& sourceRect)
 {
-	const Point2f centerOfSet{ texture.width / 2, texture.height / 2 };
+	/*
+	const Point2f centerOfSet{texture.width / 2, texture.height / 2};
 	const Point2f finalPosition{ position.x - centerOfSet.x, position.y - centerOfSet.y };
 
 	DrawTexture(texture,finalPosition, sourceRect);
+	*/
+	DrawCrewMate(
+		texture,
+		Rectf{ position.x,position.y, sourceRect.width,sourceRect.height },
+		sourceRect
+	);
 }
 
 void DrawCrewMate(const utils::Texture& texture, const Rectf& destRect, const Rectf& sourceRect)

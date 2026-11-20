@@ -155,6 +155,13 @@ namespace utils
 	float GetDistance(const Point2f& posFirst, const Point2f& posSecond);
 	bool isPointInCircle(const Point2f& pos, const Circlef& circle);
 	bool isPointInCircle(const Point2f& pos, const float centerX, const float centerY, const float radius);
+	bool isPointInCircle(const float posX, const float posY, const Circlef& circle);
+	bool isPointInCircle(const float posX, const float posY, const float centerX, const float centerY, const float radius);
+
+	bool IsPointInRect(const Point2f& pos, const Rectf& rectf);
+	bool IsPointInRect(const Point2f& pos, const float left, const float top, const float width, const float height);
+	bool IsPointInRect(const float posX, const float posY, const Rectf& rectf);
+	bool IsPointInRect(const float posX, const float posY, const float left, const float top, const float width, const float height);
 #pragma endregion CollisionFunctionality
 
 }

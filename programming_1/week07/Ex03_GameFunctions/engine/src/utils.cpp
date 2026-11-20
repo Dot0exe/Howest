@@ -520,19 +520,44 @@ namespace utils
 		float distance{ ((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)) };
 		return std::sqrt(distance);
 	}
-
 	float GetDistance(const Point2f& posFirst, const Point2f& posSecond)
 	{
 		return GetDistance(posFirst.x, posFirst.y, posSecond.x, posSecond.y);
 	}
+
 	bool isPointInCircle(const Point2f& pos, const Circlef& circle)
 	{
-		return isPointInCircle(pos, circle.center.x, circle.center.y, circle.radius);
+		return isPointInCircle(pos.x, pos.y, circle.center.x, circle.center.y, circle.radius);
 	}
 	bool isPointInCircle(const Point2f& pos, const float centerX, const float centerY, const float radius) 
 	{
-		float point{ GetDistance(pos.x,pos.y,centerX,centerY) };
+		return isPointInCircle(pos.x, pos.y, centerX, centerY, radius);
+	}
+	bool isPointInCircle(const float posX, const float posY, const Circlef& circle)
+	{
+		return isPointInCircle(posX, posY, circle.center.x, circle.center.y, circle.radius);
+	}
+	bool isPointInCircle(const float posX, const float posY, const float centerX, const float centerY, const float radius)
+	{
+		float point{ GetDistance(posX,posY,centerX,centerY) };
 		return (point <= radius);
+	}
+
+	bool IsPointInRect(const Point2f& pos, const Rectf& rectf)
+	{
+		return IsPointInRect(pos.x,pos.y, rectf.left, rectf.top, rectf.width, rectf.height);
+	}
+	bool IsPointInRect(const Point2f& pos, const float left, const float top, const float width, const float height)
+	{
+		return IsPointInRect(pos.x, pos.y, left, top, width, height);
+	}
+	bool IsPointInRect(const float posX, const float posY, const Rectf& rectf)
+	{
+		return IsPointInRect(posX, posY, rectf.left, rectf.top, rectf.width, rectf.height);
+	}
+	bool IsPointInRect(const float posX, const float posY, const float left, const float top, const float width, const float height)
+	{
+		return ((posX >= left) && (posX <= (left + width)) && (posY >= top) && (posY <= (top + height)));
 	}
 #pragma endregion CollisionFunctionality
 }

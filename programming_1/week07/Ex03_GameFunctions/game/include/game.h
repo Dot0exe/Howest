@@ -15,7 +15,8 @@ float g_WindowHeight{ 600.f };
 #pragma endregion
 
 #pragma region myVariables
-
+Rectf g_rect{ 0,0,100,100 };
+Circlef g_cirle{ 200,200,100 };
 #pragma endregion
 
 #pragma region gameFunctions

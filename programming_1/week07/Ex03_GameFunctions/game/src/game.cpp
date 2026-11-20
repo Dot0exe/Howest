@@ -9,12 +9,15 @@ using namespace utils;
 // Load textures and initialize other resources here.
 void Start()
 {
+	SetColor(0, 0, 0);
 }
 
 // Draw your game objects here.
 void Draw()
 {
 	ClearBackground(); // Clear the background with a default color
+	FillRect(g_rect);
+	FillEllipse(g_cirle.center.x, g_cirle.center.y, g_cirle.radius, g_cirle.radius);
 }
 
 // Handle gameplay, movement and collisions here.
@@ -44,6 +47,15 @@ void OnKeyUpEvent(SDL_Keycode key)
 // Called whenever the mouse moves.
 void OnMouseMotionEvent(const SDL_MouseMotionEvent& e)
 {
+
+	if ((isPointInCircle(e.x, e.y, g_cirle)) || (IsPointInRect(e.x, e.y, g_rect)))
+	{
+		SetColor(1, 0, 0);
+	}	
+	else
+	{
+		SetColor(0, 0, 0);
+	}
 }
 
 // Called once when a mouse button is pressed.

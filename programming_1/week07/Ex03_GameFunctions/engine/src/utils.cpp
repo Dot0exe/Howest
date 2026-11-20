@@ -525,19 +525,19 @@ namespace utils
 		return GetDistance(posFirst.x, posFirst.y, posSecond.x, posSecond.y);
 	}
 
-	bool isPointInCircle(const Point2f& pos, const Circlef& circle)
+	bool IsPointInCircle(const Point2f& pos, const Circlef& circle)
 	{
-		return isPointInCircle(pos.x, pos.y, circle.center.x, circle.center.y, circle.radius);
+		return IsPointInCircle(pos.x, pos.y, circle.center.x, circle.center.y, circle.radius);
 	}
-	bool isPointInCircle(const Point2f& pos, const float centerX, const float centerY, const float radius) 
+	bool IsPointInCircle(const Point2f& pos, const float centerX, const float centerY, const float radius) 
 	{
-		return isPointInCircle(pos.x, pos.y, centerX, centerY, radius);
+		return IsPointInCircle(pos.x, pos.y, centerX, centerY, radius);
 	}
-	bool isPointInCircle(const float posX, const float posY, const Circlef& circle)
+	bool IsPointInCircle(const float posX, const float posY, const Circlef& circle)
 	{
-		return isPointInCircle(posX, posY, circle.center.x, circle.center.y, circle.radius);
+		return IsPointInCircle(posX, posY, circle.center.x, circle.center.y, circle.radius);
 	}
-	bool isPointInCircle(const float posX, const float posY, const float centerX, const float centerY, const float radius)
+	bool IsPointInCircle(const float posX, const float posY, const float centerX, const float centerY, const float radius)
 	{
 		float point{ GetDistance(posX,posY,centerX,centerY) };
 		return (point <= radius);
@@ -559,5 +559,59 @@ namespace utils
 	{
 		return ((posX >= left) && (posX <= (left + width)) && (posY >= top) && (posY <= (top + height)));
 	}
+
+	// IsOverlapping circle
+	bool IsOverlapping(Circlef& circle1, Circlef& circle2)
+	{
+		return IsOverlapping(circle1.center.x, circle1.center.y, circle1.radius, circle2.center.x, circle2.center.y, circle2.radius);
+	}
+	bool IsOverlapping(const float centerX1, const float centerY1, const float radius1, Circlef& circle2)
+	{
+		return IsOverlapping(centerX1, centerY1, radius1, circle2.center.x, circle2.center.y, circle2.radius);
+	}
+	bool IsOverlapping(Circlef& circle1, const float centerX2, const float centerY2, const float radius2)
+	{
+		return IsOverlapping(circle1.center.x, circle1.center.y, circle1.radius, centerX2, centerY2, radius2);
+	}
+	bool IsOverlapping(const float centerX1, const float centerY1, const float radius1, const float centerX2, const float centerY2, const float radius2)
+	{
+		float distance{ GetDistance(centerX1,centerY1,centerX2,centerY2) };
+		float radSum{ radius1 + radius2 };
+		if (distance < radSum)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	// IsOverlapping rect
+	bool IsOverlapping(Rectf rect1, Rectf rect2)
+	{
+		return IsOverlapping(rect1.left, rect1.top, rect1.width, rect1.height, rect2.left, rect2.top, rect2.width, rect2.height);
+	}
+	bool IsOverlapping(float left1, float top1, float width1, float height1, Rectf rect2)
+	{
+		return IsOverlapping(left1, top1, width1, height1, rect2.left, rect2.top, rect2.width, rect2.height);
+	}
+	bool IsOverlapping(Rectf rect1, float left2, float top2, float width2, float height2)
+	{
+		return IsOverlapping(rect1.left, rect1.top, rect1.width, rect1.height, left2, top2, width2, height2);
+	}
+	bool IsOverlapping(float left1, float top1, float width1, float height1, float left2, float top2, float width2, float height2)
+	{
+		// If one rectangle is on left side of other
+		if((left1 > (left2 + width2)) || (left2 > (left1 + width1)))
+		{
+			return false;
+		}
+		if ((left1 < (left2 + width2)) || (left2 < (left1 + width1)))
+		{
+			return false;
+		}
+		return true;
+	}
+
 #pragma endregion CollisionFunctionality
 }

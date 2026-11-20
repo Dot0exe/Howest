@@ -48,7 +48,7 @@ void OnKeyUpEvent(SDL_Keycode key)
 void OnMouseMotionEvent(const SDL_MouseMotionEvent& e)
 {
 
-	if ((isPointInCircle(e.x, e.y, g_cirle)) || (IsPointInRect(e.x, e.y, g_rect)))
+	if ((IsPointInCircle(e.x, e.y, g_cirle)) || (IsPointInRect(e.x, e.y, g_rect)))
 	{
 		SetColor(1, 0, 0);
 	}	

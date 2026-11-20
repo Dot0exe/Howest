@@ -153,15 +153,27 @@ namespace utils
 #pragma region CollisionFunctionality
 	float GetDistance(float x1, float y1, float x2, float y2);
 	float GetDistance(const Point2f& posFirst, const Point2f& posSecond);
-	bool isPointInCircle(const Point2f& pos, const Circlef& circle);
-	bool isPointInCircle(const Point2f& pos, const float centerX, const float centerY, const float radius);
-	bool isPointInCircle(const float posX, const float posY, const Circlef& circle);
-	bool isPointInCircle(const float posX, const float posY, const float centerX, const float centerY, const float radius);
+
+	bool IsPointInCircle(const Point2f& pos, const Circlef& circle);
+	bool IsPointInCircle(const Point2f& pos, const float centerX, const float centerY, const float radius);
+	bool IsPointInCircle(const float posX, const float posY, const Circlef& circle);
+	bool IsPointInCircle(const float posX, const float posY, const float centerX, const float centerY, const float radius);
 
 	bool IsPointInRect(const Point2f& pos, const Rectf& rectf);
 	bool IsPointInRect(const Point2f& pos, const float left, const float top, const float width, const float height);
 	bool IsPointInRect(const float posX, const float posY, const Rectf& rectf);
 	bool IsPointInRect(const float posX, const float posY, const float left, const float top, const float width, const float height);
+	
+	// IsOverlapping circle
+	bool IsOverlapping(Circlef& circle1, Circlef& circle2);
+	bool IsOverlapping(const float centerX1, const float centerY1, const float radius1, Circlef& circle2);
+	bool IsOverlapping(Circlef& circle1, const float centerX2, const float centerY2, const float radius2);
+	bool IsOverlapping(const float centerX1, const float centerY1, const float radius1, const float centerX2, const float centerY2, const float radius2);
+	// IsOverlapping rect
+	bool IsOverlapping(Rectf rect1, Rectf rect2);
+	bool IsOverlapping(float left1, float top1, float width1, float height1, Rectf rect2);
+	bool IsOverlapping(Rectf rect1, float left2, float top2, float width2, float height2);
+	bool IsOverlapping(float left1, float top1, float width1, float height1, float left2, float top2, float width2, float height2);
 #pragma endregion CollisionFunctionality
 
 }

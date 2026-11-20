@@ -1,0 +1,80 @@
+{
+	"debugging": {
+		"drawDebugGizmos": false
+	},
+	"gameplayTuning": {
+		"playerCollisionBox": {
+			"width": 1.0,
+			"height": 0.550,
+			"yOffset": 0
+		},
+		"enemySightBox": {
+			"width": 12.3,
+			"height": 0.8,
+			"yOffset": -1.0
+		},
+		"enemyBodyBox": {
+			"width": 1.64,
+			"height": 1.8,
+			"yOffset": 0.0
+		},
+		"enemyHeadBox": {
+			"height": 0.7
+		},
+		"stompDamage": 1,
+		"enemyHealth": 3,
+		"cameraDistance": 5
+	},
+	"blendModes": {
+		"character": "Normal",
+		"enemy": "Normal"
+	},
+	"anims": [
+		{
+			"name": "characterRun",
+			"yOffset": 0,
+			"columns": 4,
+			"rows": 2,
+			"numFrames": 8,
+			"frameSpeed": 0.02
+		},
+		{
+			"name": "characterJump",
+			"yOffset": 0,
+			"columns": 1,
+			"rows": 1,
+			"numFrames": 1,
+			"frameSpeed": 0.05,
+			"loopUpStartsAt": 5,
+			"loopUpEndsAt": 6,
+			"loopDownStartsAt": 11,
+			"loopDownEndsAt": 12
+		},
+		{
+			"name": "characterIdle",
+			"yOffset": 0,
+			"columns": 1,
+			"rows": 1,
+			"numFrames": 1,
+			"frameSpeed": 0.3
+		},
+		{
+			"name": "enemyIdle",
+			"yOffset": 0.2,
+			"columns": 7,
+			"rows": 3,
+			"numFrames": 21,
+			"frameSpeed": 0.057
+		}
+	],
+	"animsCollectible": [
+		{
+			"name": "objCollectible",
+			"yOffset": 0.5,
+			"columns": 8,
+			"rows": 1,
+			"numFrames": 8,
+			"frameSpeed": 0.107
+		}
+	]
+}

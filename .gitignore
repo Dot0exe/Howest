@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+
+# Build output
+out/
+
+# Diğer yaygın build klasörleri
+bin/
+obj/
+
+# Visual Studio user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -6,23 +6,34 @@ void SizeOfArrays();
 void ElementsInMemory();
 void PrintElements(int arrNumbers[], int size);
 void PrintElements(int arrNumbers[], int startIdx, int endIdx);
+int GetIndex(int rowIdx, int colIdx, int nrCols);
+int GetRow(int index, int numCols);
+int GetCol(int index, int numCols);
+
 
 const int arraySize{ 5 };
 int firstArray[arraySize]{};
 int secondArray[]{ 1,2,3,4,5 };
 int thirdArray[arraySize]{ 1,2,3,4,5 };
 int sizeOfArray{ sizeof(secondArray) / sizeof(secondArray[0]) };
+void GridLoop(int rows, int cols);
 
 int main()
 {
-	std::cout << "-- Passing an array to a function, Print Elements --\n";
+	GridLoop(4, 5);
 
-	std::cout << "Print all elements\n";
-	PrintElements(firstArray, sizeOfArray);
-	PrintElements(secondArray, sizeOfArray);
-	PrintElements(thirdArray, sizeOfArray);
-	std::cout << "Print a range of elements\n";
-	PrintElements(secondArray, 2, 4);
+	//std::cout << GetRow(4,3);
+	//std::cout << GetCol(4, 3);
+	//std::cout << GetIndex(2, 2, 4);
+	
+	//std::cout << "-- Passing an array to a function, Print Elements --\n";
+
+	//std::cout << "Print all elements\n";
+	//PrintElements(firstArray, sizeOfArray);
+	//PrintElements(secondArray, sizeOfArray);
+	//PrintElements(thirdArray, sizeOfArray);
+	//std::cout << "Print a range of elements\n";
+	//PrintElements(secondArray, 2, 4);
 
 	//std::cout << "-- The elements occupy consecutive memory location -- \n"
 	//ElementsInMemory();
@@ -112,4 +123,38 @@ void PrintElements(int arrNumbers[], int startIdx, int endIdx)
 		std::cout << arrNumbers[i] << " ";
 	}
 	std::cout << "\n";
+}
+
+int GetIndex(int rowIdx, int colIdx, int nrCols)
+{
+	int index{ (rowIdx * nrCols) + colIdx };
+	return index;
+}
+
+int GetRow(int index, int numCols)
+{
+	int row{ index / numCols};
+	return row;
+}
+
+int GetCol(int index, int numCols)
+{
+	int col{ index & numCols };
+	return col;
+}
+
+void GridLoop(int rows,int cols)
+{
+	int array[]{11,12,13,14,15,21,22,23,24,25,31,32,33,34,35,41,42,43,44,45};
+	int index{};
+	for (int i{}; i < rows;i++)
+	{
+		for (int k{}; k < cols;k++)
+		{
+			std::cout << array[index] << " ";
+			index++;
+		}
+		
+		std::cout << "\n";
+	}
 }
